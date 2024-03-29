@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseURI = 'http://localhost:8080';
+const baseURI = 'https://exp-tracker-1.onrender.com';
 
 export const apiSlice = createApi({
     baseQuery : fetchBaseQuery({ baseUrl : baseURI}),
@@ -14,7 +14,7 @@ export const apiSlice = createApi({
 
         // get labels
         getLabels : builder.query({
-            // get: 'http://localhost:8080/api/labels'
+            // get: 'https://exp-tracker-1.onrender.com/api/labels'
             query : () => '/api/labels',
             providesTags: ['transaction']
         }),
@@ -22,7 +22,7 @@ export const apiSlice = createApi({
         // add new Transaction
         addTransaction : builder.mutation({
             query : (initialTransaction) => ({
-                  // post: 'http://localhost:8080/api/transaction'
+                  // post: 'https://exp-tracker-1.onrender.com/api/transaction'
                 url: '/api/transaction',
                 method: "POST",
                 body: initialTransaction
